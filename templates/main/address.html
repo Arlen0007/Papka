@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        /* General body styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Styling the main container */
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Styling the titles */
+        .address-title {
+            font-size: 1.5em;
+            color: #333;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-left: 5px solid #4CAF50;
+            background-color: #e8f5e9;
+        }
+
+        /* A bit of spacing between list items */
+        .address-title + .address-title {
+            margin-top: 15px;
+        }
+
+        /* Adding responsiveness for mobile */
+        @media (max-width: 600px) {
+            .container {
+                width: 90%;
+                padding: 10px;
+            }
+
+            .address-title {
+                font-size: 1.2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">News</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="{% url 'main:home' %}">Home</a></li>
+      <li><a href=" {% url 'main:address' %} ">Address</a></li>
+      <li><a href="#">Contacts</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+    {% for l in address %}
+        <div class="address-title">{{ l.title }}</div>
+    {% endfor %}
+</div>
+
+</body>
+</html>
